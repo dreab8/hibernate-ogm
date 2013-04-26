@@ -461,7 +461,7 @@ em.close();</programlisting>
 
     <para>Provided you're deploying on JBoss AS 7.2 or JBoss EAP6, there is an additional way to add the OGM dependencies to your application.</para>
 
-    <para>In JBoss AS 7 class loading is based on modules that have to define explicit dependencies on other modules.
+    <para>In JBoss AS 7.2 class loading is based on modules that have to define explicit dependencies on other modules.
     Modules allow to share the same artifacts across multiple applications getting you smaller and quicker deloyments.</para>
 
     <para>More details about modules are described in <ulink url="https://docs.jboss.org/author/display/AS72/Class+Loading+in+AS7">Class Loading in AS 7.2</ulink>.</para>
@@ -476,7 +476,7 @@ em.close();</programlisting>
       </listitem>
     </itemizedlist>
 
-    <para>Unpack the archive into the <literal>modules</literal> folder of your JBoss AS 7.2 installation. The modules included are:</para>
+    <para>Unpack the compress archive into the <literal>modules</literal> folder of your JBoss AS 7.2 installation. The modules included in the archive are:</para>
 
     <itemizedlist>
       <listitem>
