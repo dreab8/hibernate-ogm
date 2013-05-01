@@ -25,18 +25,13 @@ import org.hibernate.ogm.test.integration.jbossas7.util.ModuleMemberRegistration
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.shrinkwrap.api.Archive;
-import org.jboss.shrinkwrap.api.spec.JavaArchive;
 import org.jboss.shrinkwrap.descriptor.api.Descriptors;
 import org.jboss.shrinkwrap.descriptor.api.persistence20.PersistenceDescriptor;
-import org.jboss.shrinkwrap.resolver.api.DependencyResolvers;
-import org.jboss.shrinkwrap.resolver.api.maven.MavenDependencyResolver;
 import org.junit.runner.RunWith;
-
-import static org.hibernate.ogm.cfg.impl.Version.getVersionString;
 
 /**
  * Test the hibernate OGM module in JBoss AS using CouchDB
- *
+ * 
  * @author Andrea Boriero <dreborier@gmail.com>
  */
 @RunWith(Arquillian.class)
@@ -45,29 +40,23 @@ public class CouchDBModuleMemberRegistrationIT extends ModuleMemberRegistrationS
 	public static Archive<?> createTestArchive() {
 		return new ModuleMemberRegistrationDeployment.Builder( CouchDBModuleMemberRegistrationIT.class )
 				.persistenceXml( persistenceXml() )
-				.manifestDependencies( "org.hibernate:ogm services" )
-				.createDeployment()
-                    .addAsLibraries(
-                            DependencyResolvers.use( MavenDependencyResolver.class )
-                                .artifact( "org.hibernate.ogm:hibernate-ogm-couchdb:" + getVersionString() )
-                                    .exclusion( "org.hibernate.ogm:hibernate-ogm-core" )
-                                    .exclusion( "org.hibernate:*" )
-                                .resolveAs( JavaArchive.class ) );
+				.manifestDependencies( "org.hibernate:ogm services, org.hibernate.ogm.couchdb services" )
+				.createDeployment();
 
 	}
 
 	private static PersistenceDescriptor persistenceXml() {
 		return Descriptors.create( PersistenceDescriptor.class )
-                    .version( "2.0" )
-                    .createPersistenceUnit()
-                        .name( "primary" )
-                        .provider( "org.hibernate.ogm.jpa.HibernateOgmPersistence" )
-                        .clazz( Member.class.getName() )
-                        .getOrCreateProperties()
-                            .createProperty().name( "hibernate.ogm.datastore.provider" ).value( "couchdb" ).up()
-                            .createProperty().name( "hibernate.ogm.couchdb.host" ).value( "localhost" ).up()
-                            .createProperty().name( "hibernate.ogm.couchdb.port" ).value( "5984" ).up()
-                            .createProperty().name( "hibernate.ogm.couchdb.database" ).value( "ogm_test_database" ).up()
-                        .up().up();
+				.version( "2.0" )
+				.createPersistenceUnit()
+					.name( "primary" )
+					.provider( "org.hibernate.ogm.jpa.HibernateOgmPersistence" )
+					.clazz( Member.class.getName() )
+				.getOrCreateProperties()
+					.createProperty().name( "hibernate.ogm.datastore.provider" ).value( "couchdb" ).up()
+					.createProperty().name( "hibernate.ogm.couchdb.host" ).value( "localhost" ).up()
+					.createProperty().name( "hibernate.ogm.couchdb.port" ).value( "5984" ).up()
+					.createProperty().name( "hibernate.ogm.couchdb.database" ).value( "ogm_test_database" ).up()
+				.up().up();
 	}
 }
