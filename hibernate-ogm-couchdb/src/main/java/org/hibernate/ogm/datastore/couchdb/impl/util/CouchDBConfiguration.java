@@ -49,7 +49,7 @@ public class CouchDBConfiguration {
 	}
 
 	public String getDatabaseName() {
-		return (String) configurationValues.get( Environment.COUCHDB_DATABASE );
+		return getPropertyValue( Environment.COUCHDB_DATABASE, null );
 	}
 
 	public String getUsername() {
