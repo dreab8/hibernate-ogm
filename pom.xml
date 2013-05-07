@@ -934,7 +934,7 @@
                 </property>
             </activation>
             <modules>
-                <module>hibernate-ogm-couhdb</module>
+                <module>hibernate-ogm-couchdb</module>
             </modules>
         </profile>
     </profiles>

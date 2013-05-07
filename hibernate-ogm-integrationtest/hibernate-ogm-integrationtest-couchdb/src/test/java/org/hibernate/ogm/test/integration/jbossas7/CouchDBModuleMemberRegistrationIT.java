@@ -31,11 +31,12 @@ import org.junit.runner.RunWith;
 
 /**
  * Test the hibernate OGM module in JBoss AS using CouchDB
- * 
+ *
  * @author Andrea Boriero <dreborier@gmail.com>
  */
 @RunWith(Arquillian.class)
 public class CouchDBModuleMemberRegistrationIT extends ModuleMemberRegistrationScenario {
+
 	@Deployment
 	public static Archive<?> createTestArchive() {
 		return new ModuleMemberRegistrationDeployment.Builder( CouchDBModuleMemberRegistrationIT.class )
