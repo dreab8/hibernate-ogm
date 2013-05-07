@@ -52,7 +52,7 @@
         </file>
         <file>
              <source>${module.xml.basedir}/ogm/couchdb/module.xml</source>
-             <outputDirectory>/modules/org/hibernate/ogm/couchdb/main</outputDirectory>
+             <outputDirectory>/org/hibernate/ogm/couchdb/main</outputDirectory>
              <filtered>true</filtered>
         </file>
    </files>
@@ -90,7 +90,7 @@
        </dependencySet>
         <dependencySet>
              <useProjectArtifact>false</useProjectArtifact>
-             <outputDirectory>modules/org/hibernate/ogm/couchdb/${hibernate.ogm.couchdb.module.slot}</outputDirectory>
+             <outputDirectory>org/hibernate/ogm/couchdb/${hibernate.ogm.couchdb.module.slot}</outputDirectory>
              <useTransitiveFiltering>false</useTransitiveFiltering>
              <unpack>false</unpack>
              <includes>
