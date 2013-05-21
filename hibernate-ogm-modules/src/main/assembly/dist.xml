@@ -95,6 +95,7 @@
              <unpack>false</unpack>
              <includes>
                  <include>org.hibernate.ogm:hibernate-ogm-couchdb</include>
+                 <include>commons-httpclient:commons-httpclient</include>
              </includes>
        </dependencySet>
        <dependencySet>

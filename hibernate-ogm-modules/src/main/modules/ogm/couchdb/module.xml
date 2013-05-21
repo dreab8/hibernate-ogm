@@ -22,6 +22,7 @@
 <module xmlns="urn:jboss:module:1.1" name="org.hibernate.ogm.couchdb" slot="${hibernate.ogm.couchdb.module.slot}">
     <resources>
         <resource-root path="hibernate-ogm-couchdb-${project.version}.jar" />
+        <resource-root path="commons-httpclient-3.1.jar" />
     </resources>
     <dependencies>
         <module name="org.hibernate" export="true" services="import" slot="${hibernate.ogm.module.slot}" />
@@ -34,6 +35,14 @@
         <module name="org.dom4j" />
         <module name="org.jboss.as.jpa.hibernate" slot="4" optional="true" />
         <module name="org.jboss.logging" />
+        <module name="org.jboss.resteasy.resteasy-jaxrs" services="export" export="true" />
+        <module name="org.jboss.resteasy.resteasy-jaxb-provider" />
+        <module name="org.jboss.resteasy.resteasy-jackson-provider" />
+        <module name="org.apache.httpcomponents" services="export" export="true" />
+        <module name="org.codehaus.jackson.jackson-core-asl" />
+        <module name="org.apache.commons.logging" />
+        <module name="org.apache.commons.codec" />
+        <module name="org.apache.commons.httpclient" />
 
         <!-- Allow Hibernate ORM to load com.arjuna.ats.jta.TransactionManager -->
         <module name="org.jboss.jts" export="true" />

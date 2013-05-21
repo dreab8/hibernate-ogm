@@ -198,7 +198,7 @@
             -->
             <activation>
                 <property>
-                    <name>env.MONGODB_HOSTNAME</name>
+                    <name>env.COUCHDB_HOSTNAME</name>
                 </property>
             </activation>
             <modules>
