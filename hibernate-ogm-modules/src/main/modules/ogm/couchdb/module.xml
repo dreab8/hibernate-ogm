@@ -22,7 +22,23 @@
 <module xmlns="urn:jboss:module:1.1" name="org.hibernate.ogm.couchdb" slot="${hibernate.ogm.couchdb.module.slot}">
     <resources>
         <resource-root path="hibernate-ogm-couchdb-${project.version}.jar" />
+        <resource-root path="resteasy-jaxrs-2.3.5.Final.jar" />
+        <resource-root path="jaxrs-api-2.3.5.Final.jar" />
+        <resource-root path="scannotation-1.0.3.jar" />
+        <resource-root path="jsr250-api-1.0.jar" />
+        <resource-root path="activation-1.1.jar" />
         <resource-root path="commons-httpclient-3.1.jar" />
+        <resource-root path="commons-logging-1.0.4.jar" />
+        <resource-root path="commons-codec-1.2.jar" />
+        <resource-root path="httpclient-4.1.2.jar" />
+        <resource-root path="httpcore-4.1.2.jar" />
+        <resource-root path="commons-io-1.4.jar" />
+        <resource-root path="jcip-annotations-1.0.jar" />
+        <resource-root path="resteasy-jackson-provider-2.3.5.Final.jar" />
+        <resource-root path="jackson-core-asl-1.9.9.jar" />
+        <resource-root path="jackson-mapper-asl-1.9.9.jar" />
+        <resource-root path="jackson-jaxrs-1.9.9.jar" />
+        <resource-root path="jackson-xc-1.9.9.jar" />
     </resources>
     <dependencies>
         <module name="org.hibernate" export="true" services="import" slot="${hibernate.ogm.module.slot}" />
@@ -32,17 +48,10 @@
         <module name="javax.transaction.api" />
         <module name="javax.validation.api" />
         <module name="org.slf4j" />
+        <module name="org.apache.log4j" />
         <module name="org.dom4j" />
         <module name="org.jboss.as.jpa.hibernate" slot="4" optional="true" />
         <module name="org.jboss.logging" />
-        <module name="org.jboss.resteasy.resteasy-jaxrs" services="export" export="true" />
-        <module name="org.jboss.resteasy.resteasy-jaxb-provider" />
-        <module name="org.jboss.resteasy.resteasy-jackson-provider" />
-        <module name="org.apache.httpcomponents" services="export" export="true" />
-        <module name="org.codehaus.jackson.jackson-core-asl" />
-        <module name="org.apache.commons.logging" />
-        <module name="org.apache.commons.codec" />
-        <module name="org.apache.commons.httpclient" />
 
         <!-- Allow Hibernate ORM to load com.arjuna.ats.jta.TransactionManager -->
         <module name="org.jboss.jts" export="true" />
